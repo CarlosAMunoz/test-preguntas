@@ -1,0 +1,37 @@
+html{
+    font-family: sans-serif;
+}
+
+
+.pregunta{
+    background-color: #7fffd4;
+    padding: 10px;
+    border: solid #000 1px;
+}
+
+.respuesta{
+    padding: 10px;
+    border: solid #000 1px;
+    margin-top: 4px;
+}
+
+.boton_acept{
+    margin-top: 5px;
+    padding: 6px;
+}
+
+
+
+
+/* Utilizamos la pseudoClase :hover para que no se aplique en teléfonos o tablets */
+@media (hover: hover){
+    .boton_acept:hover{
+        background-color: #7fffd4;
+        cursor: pointer;
+    }
+
+    .respuesta:hover{
+        background-color: #7fffd4;
+        cursor: pointer;
+    }
+}
