@@ -14,10 +14,10 @@ let opcion4 = document.getElementById("respuesta4");
 
 botonAcpt.addEventListener("click", elegir_pregunta);
 
-opcion1.addEventListener("click", validar_respuesta1);
-opcion2.addEventListener("click", validar_respuesta2);
-opcion3.addEventListener("click", validar_respuesta3);
-opcion4.addEventListener("click", validar_respuesta4);
+opcion1.addEventListener("click", validarRespuesta1);
+opcion2.addEventListener("click", validarRespuesta2);
+opcion3.addEventListener("click", validarRespuesta3);
+opcion4.addEventListener("click", validarRespuesta4);
 
 
 
@@ -43,7 +43,7 @@ objetos preguntas */
 
 const p1 = new Pregunta(1,"¿Cuál es la ciudad más poblada del mundo?", "Ciudad de Mexico", "Bogotá", "Sao Paulo", "Tokio");
 const p2 = new Pregunta(2,"¿A qué edad murió Abraham Lincoln?", "32", "48", "56", "64");
-const p3 = new Pregunta(3,"¿3?", "", "", "", "");
+const p3 = new Pregunta(3,"¿3?", "No?", "si", "si", "no");
 const p4 = new Pregunta(4,"¿4?", "", "", "", "");
 const p5 = new Pregunta(5,"¿5?", "", "", "", "");
 const p6 = new Pregunta(6,"¿6?", "", "", "", "");
@@ -55,15 +55,19 @@ const p10 = new Pregunta(10,"¿10?", "", "", "", "");
 
 var formuladas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 var respondido = [];
-/*Creamos dos arrays, uno para guardar todas las preguntas formuladas y otro para todas las respondidas. */
+/*Creamos dos arrays, uno para guardar todos los objetos con preguntas formuladas y otro para todas las respondidas. */
+
 
 
 //-----Crear opción de saltar pregunta 
+//---- Que no se repitan preguntas
+//---Que se pinte de color verde la correcta y rojo la incorrecta.
+//--- Validar para cuando haya terminado y diga finalizar. 
+
 
 
 
 function elegir_pregunta(){
-
 
     function aleatorio(min, max)
     {
@@ -73,11 +77,12 @@ function elegir_pregunta(){
     }
     /* Se crea función para crear números aleatorios.
     Esta función la llavamos dos veces, una para la pregunta que saldrá y otra para la posición de la pregunta correcta. */
-
-
-
+    
+    
+    
     //Llamamos al aleatorio con mínimo de 1 y máximo de la longitud del array formuladas. 
     var num_alea = aleatorio(1,formuladas.length);
+
 
     switch(num_alea){
         case 1:
@@ -133,6 +138,7 @@ function elegir_pregunta(){
         var num_alea2 = aleatorio(1,4);
         //Generamos otro número aleatorio de 1 a 4 para posicionar el lugar de las preguntas. 
     
+
         preguntar(num_pregunta);
         function preguntar(num_pregunta) {
             switch(num_alea2){
@@ -171,42 +177,53 @@ function elegir_pregunta(){
         /*Creamos una función la cual dibujará las preguntas y 
         posibles opciones en el navegador */
 
-            function validar_respuesta1(){
-        if(contRespuesta1.textContent == num_pregunta.respuestaCorrecta){
-            alert("Correcto");
-        }else{
-            alert("Incorrecto");
-        }
-    }
-
-
 }
 
 
 elegir_pregunta();
 
+function validarRespuesta1(){
+    var respondidoEnFuncion = respondido.pop();
 
-function validar_respuesta2(){
-    if(contRespuesta2.textContent == num_pregunta.respuestaCorrecta){
-        alert("Correcto");
+    if(contRespuesta1.textContent == respondidoEnFuncion.respuestaCorrecta){
+    alert("Correcto");
     }else{
-        alert("Incorrecto");
+    alert("Incorrecto");
     }
+    elegir_pregunta()
 }
 
-function validar_respuesta3(){
-    if(contRespuesta3.textContent == num_pregunta.respuestaCorrecta){
-        alert("Correcto");
+
+function validarRespuesta2(){
+    var respondidoEnFuncion = respondido.pop();
+
+    if(contRespuesta2.textContent == respondidoEnFuncion.respuestaCorrecta){
+    alert("Correcto");
     }else{
-        alert("Incorrecto");
+    alert("Incorrecto");
     }
+    elegir_pregunta()
 }
 
-function validar_respuesta4(){
-    if(contRespuesta4.textContent == num_pregunta.respuestaCorrecta){
-        alert("Correcto");
+function validarRespuesta3(){
+    var respondidoEnFuncion = respondido.pop();
+
+    if(contRespuesta3.textContent == respondidoEnFuncion.respuestaCorrecta){
+    alert("Correcto");
     }else{
-        alert("Incorrecto");
+    alert("Incorrecto");
     }
+    elegir_pregunta()
+}
+
+function validarRespuesta4(){
+    var respondidoEnFuncion = respondido.pop();
+
+    if(contRespuesta4.textContent == respondidoEnFuncion.respuestaCorrecta){
+    alert("Correcto");
+    }else{
+    alert("Incorrecto");
+    }
+    elegir_pregunta()
 }
 
