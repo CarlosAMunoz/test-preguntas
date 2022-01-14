@@ -18,12 +18,9 @@ opcion1.addEventListener("click", validarRespuesta1);
 opcion2.addEventListener("click", validarRespuesta2);
 opcion3.addEventListener("click", validarRespuesta3);
 opcion4.addEventListener("click", validarRespuesta4);
-
-
-
-
 /*Se traen los elementos div del html donde imprimiremos
 las preguntas y respuestas. */
+
 
 
 class Pregunta{
@@ -43,7 +40,7 @@ objetos preguntas */
 
 const p1 = new Pregunta(1,"¿Cuál es la ciudad más poblada del mundo?", "Ciudad de Mexico", "Bogotá", "Sao Paulo", "Tokio");
 const p2 = new Pregunta(2,"¿A qué edad murió Abraham Lincoln?", "32", "48", "56", "64");
-const p3 = new Pregunta(3,"¿3?", "No?", "si", "si", "no");
+const p3 = new Pregunta(3,"¿3?", "No", "si", "si", "no");
 const p4 = new Pregunta(4,"¿4?", "", "", "", "");
 const p5 = new Pregunta(5,"¿5?", "", "", "", "");
 const p6 = new Pregunta(6,"¿6?", "", "", "", "");
@@ -53,7 +50,7 @@ const p9 = new Pregunta(9,"¿9?", "", "", "", "");
 const p10 = new Pregunta(10,"¿10?", "", "", "", "");
 //Creamos los objetos (preguntas)
 
-var formuladas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+var formuladas = [p1.num_preg, p2.num_preg, p3.num_preg, p4.num_preg, p5.num_preg, p6.num_preg, p7.num_preg, p8.num_preg, p9.num_preg, p10.num_preg];
 var respondido = [];
 /*Creamos dos arrays, uno para guardar todos los objetos con preguntas formuladas y otro para todas las respondidas. */
 
@@ -69,73 +66,95 @@ var respondido = [];
 
 function elegir_pregunta(){
 
-    function aleatorio(min, max)
-    {
-    let resultado;
-    resultado = Math.floor(Math.random() * (max - min + 1)) + min;
-    return resultado;
+    var num_alea = aleatorio(1,formuladas.length);
+    function aleatorio(min, max) {
+
+        var resultado;
+        resultado = Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+    //Validamos si dentro del array respondido ya existe ese dato. Comparándolo con formuladas. 
+    //console.log(formuladas.some(idRespondido => idRespondido = formuladas[1]));
+        
+    console.log ("Formuladas: " + formuladas);
+    console.log ("Respondidas:  " + respondido);
+    console.log("Aleatorio generado: " + resultado);
+    console.log("Tamaño Respondido: " + respondido.length)
+
+    if(respondido.length <= 9){
+        for(let i=0; i<= respondido.length; i++) {
+
+            if (formuladas[resultado - 1]  === respondido[i]){
+                resultado = aleatorio(1,formuladas.length);              
+            }
+        }
+    }else{
+        finDelJuego();
+    }
+
+    return  resultado;
     }
     /* Se crea función para crear números aleatorios.
     Esta función la llavamos dos veces, una para la pregunta que saldrá y otra para la posición de la pregunta correcta. */
     
     
-    
-    //Llamamos al aleatorio con mínimo de 1 y máximo de la longitud del array formuladas. 
-    var num_alea = aleatorio(1,formuladas.length);
 
+    //Llamamos al aleatorio con mínimo de 1 y máximo de la longitud del array formuladas. 
+
+   
 
     switch(num_alea){
         case 1:
             var num_pregunta = p1;
-            respondido.push(p1);
+            respondido.push(p1.num_preg);
             break;
         case 2:
             var num_pregunta = p2;
-            respondido.push(p2);
+            respondido.push(p2.num_preg);
             break;
         case 3:
             var num_pregunta = p3;
-            respondido.push(p3);
+            respondido.push(p3.num_preg);
             break;
         case 4:
             var num_pregunta = p4;
-            respondido.push(p4);
+            respondido.push(p4.num_preg);
             break;
         case 5:
             var num_pregunta = p5;
-            respondido.push(p5);
+            respondido.push(p5.num_preg);
             break;
         case 6:
             var num_pregunta = p6;
-            respondido.push(p6);
+            respondido.push(p6.num_preg);
             break;
         case 7:
             var num_pregunta = p7;
-            respondido.push(p7);
+            respondido.push(p7.num_preg);
             break;
         case 8:
             var num_pregunta = p8;
-            respondido.push(p8);
+            respondido.push(p8.num_preg);
             break;
         case 9:
             var num_pregunta = p9;
-            respondido.push(p9);
+            respondido.push(p9.num_preg);
             break;
         case 10:
             var num_pregunta = p10;
-            respondido.push(p10);
+            respondido.push(p10.num_preg);
             break;
         default: console.log("Ningún dato válido");
     }
 
-        function aleatorio(min, max)
-        {
-        let resultado;
+       
+        function aleatorio2(min, max){
+         var resultado;
         resultado = Math.floor(Math.random() * (max - min + 1)) + min;
         return resultado;
         }
 
-        var num_alea2 = aleatorio(1,4);
+         var num_alea2 = aleatorio2(1,4); 
         //Generamos otro número aleatorio de 1 a 4 para posicionar el lugar de las preguntas. 
     
 
@@ -176,11 +195,18 @@ function elegir_pregunta(){
 
         /*Creamos una función la cual dibujará las preguntas y 
         posibles opciones en el navegador */
-
+    console.log("___________________")
 }
 
+function finDelJuego(){
+    contPregunta.textContent =(" FIN DEL JUEGO ");
+    contRespuesta1.textContent =(" FIN DEL JUEGO ")
+    contRespuesta2.textContent =(" FIN DEL JUEGO ")
+    contRespuesta3.textContent =(" FIN DEL JUEGO ")
+    contRespuesta4.textContent =(" FIN DEL JUEGO ")
+    throw new Error("Something went badly wrong!");
+}
 
-elegir_pregunta();
 
 function validarRespuesta1(){
     var respondidoEnFuncion = respondido.pop();
