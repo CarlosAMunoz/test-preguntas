@@ -21,7 +21,13 @@ html{
 }
 
 
+.pintarVerde{
+    background-color: #00ff00;
+}
 
+.pintarRojo{
+    background-color: #ff0000;
+}
 
 /* Utilizamos la pseudoClase :hover para que no se aplique en teléfonos o tablets */
 @media (hover: hover){

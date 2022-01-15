@@ -52,6 +52,7 @@ const p10 = new Pregunta(10,"¿10?", "", "", "", "");
 
 var formuladas = [p1.num_preg, p2.num_preg, p3.num_preg, p4.num_preg, p5.num_preg, p6.num_preg, p7.num_preg, p8.num_preg, p9.num_preg, p10.num_preg];
 var respondido = [];
+var respondido2 = [];
 /*Creamos dos arrays, uno para guardar todos los objetos con preguntas formuladas y otro para todas las respondidas. */
 
 
@@ -65,6 +66,19 @@ var respondido = [];
 
 
 function elegir_pregunta(){
+
+    
+    contRespuesta1.classList.remove("pintarVerde");
+    contRespuesta1.classList.remove("pintarRojo");
+    contRespuesta2.classList.remove("pintarVerde");
+    contRespuesta2.classList.remove("pintarRojo");
+    contRespuesta3.classList.remove("pintarVerde");
+    contRespuesta3.classList.remove("pintarRojo");
+    contRespuesta4.classList.remove("pintarVerde");
+    contRespuesta4.classList.remove("pintarRojo");
+
+
+
 
     var num_alea = aleatorio(1,formuladas.length);
     function aleatorio(min, max) {
@@ -107,42 +121,52 @@ function elegir_pregunta(){
         case 1:
             var num_pregunta = p1;
             respondido.push(p1.num_preg);
+            respondido2.push(p1);
             break;
         case 2:
             var num_pregunta = p2;
             respondido.push(p2.num_preg);
+            respondido2.push(p2);
             break;
         case 3:
             var num_pregunta = p3;
             respondido.push(p3.num_preg);
+            respondido2.push(p3);
             break;
         case 4:
             var num_pregunta = p4;
             respondido.push(p4.num_preg);
+            respondido2.push(p4);
             break;
         case 5:
             var num_pregunta = p5;
             respondido.push(p5.num_preg);
+            respondido2.push(p5);
             break;
         case 6:
             var num_pregunta = p6;
             respondido.push(p6.num_preg);
+            respondido2.push(p6);
             break;
         case 7:
             var num_pregunta = p7;
             respondido.push(p7.num_preg);
+            respondido2.push(p7);
             break;
         case 8:
             var num_pregunta = p8;
             respondido.push(p8.num_preg);
+            respondido2.push(p8);
             break;
         case 9:
             var num_pregunta = p9;
             respondido.push(p9.num_preg);
+            respondido2.push(p9);
             break;
         case 10:
             var num_pregunta = p10;
             respondido.push(p10.num_preg);
+            respondido2.push(p10);
             break;
         default: console.log("Ningún dato válido");
     }
@@ -154,7 +178,8 @@ function elegir_pregunta(){
         return resultado;
         }
 
-         var num_alea2 = aleatorio2(1,4); 
+        var num_alea2 = aleatorio2(1,4); 
+        console.log("Aleatrio2 es;" + num_alea2);
         //Generamos otro número aleatorio de 1 a 4 para posicionar el lugar de las preguntas. 
     
 
@@ -209,47 +234,46 @@ function finDelJuego(){
 
 
 function validarRespuesta1(){
-    var respondidoEnFuncion = respondido.pop();
+    var respondidoEnFuncion = respondido2.pop();
 
     if(contRespuesta1.textContent == respondidoEnFuncion.respuestaCorrecta){
-    alert("Correcto");
+    contRespuesta1.classList.add("pintarVerde");
     }else{
-    alert("Incorrecto");
+    contRespuesta1.classList.add("pintarRojo");
     }
-    elegir_pregunta()
+ 
 }
 
 
 function validarRespuesta2(){
-    var respondidoEnFuncion = respondido.pop();
+    var respondidoEnFuncion = respondido2.pop();
 
     if(contRespuesta2.textContent == respondidoEnFuncion.respuestaCorrecta){
-    alert("Correcto");
+    contRespuesta2.classList.add("pintarVerde");
     }else{
-    alert("Incorrecto");
+    contRespuesta2.classList.add("pintarRojo");
     }
-    elegir_pregunta()
 }
 
 function validarRespuesta3(){
-    var respondidoEnFuncion = respondido.pop();
+    var respondidoEnFuncion = respondido2.pop();
 
     if(contRespuesta3.textContent == respondidoEnFuncion.respuestaCorrecta){
-    alert("Correcto");
+        contRespuesta3.classList.add("pintarVerde");
     }else{
-    alert("Incorrecto");
+        contRespuesta3.classList.add("pintarRojo");
     }
-    elegir_pregunta()
+
 }
 
 function validarRespuesta4(){
-    var respondidoEnFuncion = respondido.pop();
+    var respondidoEnFuncion = respondido2.pop();
 
     if(contRespuesta4.textContent == respondidoEnFuncion.respuestaCorrecta){
-    alert("Correcto");
+        contRespuesta4.classList.add("pintarVerde");
     }else{
-    alert("Incorrecto");
+        contRespuesta4.classList.add("pintarRojo");
     }
-    elegir_pregunta()
+ 
 }
 
