@@ -23,33 +23,6 @@ las preguntas y respuestas. */
 
 
 
-class Pregunta{
-    constructor(num_preg, pregunta, respuestaMala1, respuestaMala2, respuestaMala3, respuestaCorrecta){
-        this.num_preg = num_preg
-        this.pregunta = pregunta
-        this.respuestaMala1 = respuestaMala1
-        this. respuestaMala2 = respuestaMala2
-        this.respuestaMala3 = respuestaMala3
-        this. respuestaCorrecta = respuestaCorrecta
-    }
-
-}
-/*creamos una clase con el constructor para agregar los 
-objetos preguntas */
-
-
-const p1 = new Pregunta(1,"¿Cuál es la ciudad más poblada del mundo?", "Ciudad de Mexico", "Bogotá", "Sao Paulo", "Tokio");
-const p2 = new Pregunta(2,"¿A qué edad murió Abraham Lincoln?", "32", "48", "56", "64");
-const p3 = new Pregunta(3,"¿3?", "No", "si", "si", "no");
-const p4 = new Pregunta(4,"¿4?", "", "", "", "");
-const p5 = new Pregunta(5,"¿5?", "", "", "", "");
-const p6 = new Pregunta(6,"¿6?", "", "", "", "");
-const p7 = new Pregunta(7,"¿7?", "", "", "", "");
-const p8 = new Pregunta(8,"¿8?", "", "", "", "");
-const p9 = new Pregunta(9,"¿9?", "", "", "", "");
-const p10 = new Pregunta(10,"¿10?", "", "", "", "");
-//Creamos los objetos (preguntas)
-
 var formuladas = [p1.num_preg, p2.num_preg, p3.num_preg, p4.num_preg, p5.num_preg, p6.num_preg, p7.num_preg, p8.num_preg, p9.num_preg, p10.num_preg];
 var respondido = [];
 var respondido2 = [];
@@ -64,10 +37,25 @@ var respondido2 = [];
 
 
 
+        //Creamos y agregamos un elemento dentro del DOM, el cual dibujará un contador de preguntas.  
+        const contenedor = document.querySelector(".container")
+        const newDiv = document.createElement("div");
+        contenedor.appendChild(newDiv);
+
+
 
 function elegir_pregunta(){
 
-    
+    if(botonAcpt.value == "Iniciar"){
+        contRespuesta1.classList.add("respuesta");
+        contRespuesta2.classList.add("respuesta");
+        contRespuesta3.classList.add("respuesta");
+        contRespuesta4.classList.add("respuesta");
+        contPregunta.classList.add("pregunta");
+        botonAcpt.value = "Siguiente";
+    }
+
+
     contRespuesta1.classList.remove("pintarVerde");
     contRespuesta1.classList.remove("pintarRojo");
     contRespuesta2.classList.remove("pintarVerde");
@@ -114,8 +102,6 @@ function elegir_pregunta(){
     
 
     //Llamamos al aleatorio con mínimo de 1 y máximo de la longitud del array formuladas. 
-
-   
 
     switch(num_alea){
         case 1:
@@ -220,6 +206,12 @@ function elegir_pregunta(){
 
         /*Creamos una función la cual dibujará las preguntas y 
         posibles opciones en el navegador */
+
+
+        //Imprimirmos el número de pregunta sobre las faltantes. 
+        newDiv.classList = "respuesta"; // Demomento ***
+        newDiv.textContent = `Pregunta ${respondido.length}/${formuladas.length}`;
+
     console.log("___________________")
 }
 

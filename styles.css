@@ -12,7 +12,7 @@ html{
 .respuesta{
     padding: 10px;
     border: solid #000 1px;
-    margin-top: 4px;
+    margin-top: 4px; 
 }
 
 .boton_acept{
@@ -37,7 +37,7 @@ html{
     }
 
     .respuesta:hover{
-        background-color: #7fffd4;
         cursor: pointer;
+        border: solid #000000 2px;
     }
 }
