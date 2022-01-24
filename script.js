@@ -46,7 +46,7 @@ var respondido2 = [];
 
 function elegir_pregunta(){
 
-    if(botonAcpt.value == "Iniciar"){
+    if(botonAcpt.value == "Start"){
         contRespuesta1.classList.add("respuesta");
         contRespuesta2.classList.add("respuesta");
         contRespuesta3.classList.add("respuesta");

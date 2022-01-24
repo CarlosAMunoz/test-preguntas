@@ -17,7 +17,7 @@ objetos preguntas */
 
 const p1 = new Pregunta(1,"¿Cuál es la ciudad más poblada del mundo?", "Ciudad de Mexico", "Bogotá", "Sao Paulo", "Tokio");
 const p2 = new Pregunta(2,"¿A qué edad murió Abraham Lincoln?", "32", "48", "56", "64");
-const p3 = new Pregunta(3,"¿3?", "No", "si", "si", "no");
+const p3 = new Pregunta(3,"¿3?", "1", "2", "3", "4");
 const p4 = new Pregunta(4,"¿4?", "", "", "", "");
 const p5 = new Pregunta(5,"¿5?", "", "", "", "");
 const p6 = new Pregunta(6,"¿6?", "", "", "", "");
