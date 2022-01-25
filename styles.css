@@ -32,6 +32,7 @@ main{
     justify-content: center;
     align-items: center;
     height: 63vh;
+    background-color: #f5f5f5;
 }
 
 
@@ -172,7 +173,7 @@ footer{
 
     .respuesta:hover{
         cursor: pointer;
-        border: solid #000000 2px;
+        border: solid #6db9ab 2px;
     }
 
 
