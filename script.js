@@ -5,6 +5,7 @@ let contRespuesta2 = document.getElementById("respuesta2");
 let contRespuesta3 = document.getElementById("respuesta3");
 let contRespuesta4 = document.getElementById("respuesta4");
 let botonAcpt = document.getElementById("boton_acept");
+let contenedor = document.querySelector(".container");
 
 let opcion1 = document.getElementById("respuesta1");
 let opcion2 = document.getElementById("respuesta2");
@@ -38,9 +39,7 @@ var respondido2 = [];
 
 
         //Creamos y agregamos un elemento dentro del DOM, el cual dibujará un contador de preguntas.  
-        const contenedor = document.querySelector(".container")
-        const newDiv = document.createElement("div");
-        contenedor.appendChild(newDiv);
+    const newDiv = document.getElementById("contador")
 
 
 
@@ -52,7 +51,10 @@ function elegir_pregunta(){
         contRespuesta3.classList.add("respuesta");
         contRespuesta4.classList.add("respuesta");
         contPregunta.classList.add("pregunta");
+        contenedor.classList.add("container2");   
+        botonAcpt.classList.add("boton_siguiente");
         botonAcpt.value = "Siguiente";
+
     }
 
 
@@ -209,8 +211,8 @@ function elegir_pregunta(){
 
 
         //Imprimirmos el número de pregunta sobre las faltantes. 
-        newDiv.classList = "respuesta"; // Demomento ***
-        newDiv.textContent = `Pregunta ${respondido.length}/${formuladas.length}`;
+        newDiv.classList.add("contador");
+        newDiv.textContent = ` ${respondido.length}/${formuladas.length}`;
 
     console.log("___________________")
 }
