@@ -27,6 +27,7 @@ las preguntas y respuestas. */
 var formuladas = [p1.num_preg, p2.num_preg, p3.num_preg, p4.num_preg, p5.num_preg, p6.num_preg, p7.num_preg, p8.num_preg, p9.num_preg, p10.num_preg];
 var respondido = [];
 var respondido2 = [];
+let cantidadCorrectas = 0;
 /*Creamos dos arrays, uno para guardar todos los objetos con preguntas formuladas y otro para todas las respondidas. */
 
 
@@ -218,11 +219,21 @@ function elegir_pregunta(){
 }
 
 function finDelJuego(){
-    contPregunta.textContent =(" FIN DEL JUEGO ");
-    contRespuesta1.textContent =(" FIN DEL JUEGO ")
-    contRespuesta2.textContent =(" FIN DEL JUEGO ")
-    contRespuesta3.textContent =(" FIN DEL JUEGO ")
-    contRespuesta4.textContent =(" FIN DEL JUEGO ")
+    contPregunta.classList.add("fin_juego")
+    contPregunta.textContent =(`¡Fin del juego!         Correctas: ${cantidadCorrectas} ` );
+
+    contRespuesta1.classList.remove("respuesta");
+    contRespuesta2.classList.remove("respuesta");
+    contRespuesta3.classList.remove("respuesta");
+    contRespuesta4.classList.remove("respuesta");
+    newDiv.classList.remove("contador");
+
+
+    contRespuesta1.textContent =("")
+    contRespuesta2.textContent =("")
+    contRespuesta3.textContent =("")
+    contRespuesta4.textContent =("")
+    newDiv.textContent = ("");
     throw new Error("Something went badly wrong!");
 }
 
@@ -232,6 +243,7 @@ function validarRespuesta1(){
 
     if(contRespuesta1.textContent == respondidoEnFuncion.respuestaCorrecta){
     contRespuesta1.classList.add("pintarVerde");
+    cantidadCorrectas ++;
     }else{
     contRespuesta1.classList.add("pintarRojo");
     }
@@ -244,6 +256,7 @@ function validarRespuesta2(){
 
     if(contRespuesta2.textContent == respondidoEnFuncion.respuestaCorrecta){
     contRespuesta2.classList.add("pintarVerde");
+    cantidadCorrectas ++;
     }else{
     contRespuesta2.classList.add("pintarRojo");
     }
@@ -254,6 +267,7 @@ function validarRespuesta3(){
 
     if(contRespuesta3.textContent == respondidoEnFuncion.respuestaCorrecta){
         contRespuesta3.classList.add("pintarVerde");
+        cantidadCorrectas ++;
     }else{
         contRespuesta3.classList.add("pintarRojo");
     }
@@ -265,6 +279,7 @@ function validarRespuesta4(){
 
     if(contRespuesta4.textContent == respondidoEnFuncion.respuestaCorrecta){
         contRespuesta4.classList.add("pintarVerde");
+        cantidadCorrectas ++;
     }else{
         contRespuesta4.classList.add("pintarRojo");
     }
