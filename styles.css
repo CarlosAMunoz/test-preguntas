@@ -106,6 +106,12 @@ footer{
     text-align: center;
 }
 
+
+.fin_juego{
+    width: 300px;
+    margin: 100px auto;
+}
+
 .respuestas{
     margin-top: 20px;
     display: flex;
@@ -164,6 +170,7 @@ footer{
 .pintarRojo{
     background-color: #FF8C8C;
 }
+
 
 /* Utilizamos la pseudoClase :hover para que no se aplique en teléfonos o tablets */
 @media (hover: hover){
